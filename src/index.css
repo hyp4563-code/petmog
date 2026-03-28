@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+@theme {
+  --color-brand-peach-50: #FFF5EE;
+  --color-brand-peach-100: #E8956D;
+  --color-brand-peach-200: #D4845A;
+  --color-brand-peach-400: #B5622F;
+  --color-brand-peach-600: #8B4513;
+  --color-brand-peach-800: #4A2008;
+  --color-brand-mint: #7DD4C0;
+  --color-brand-rose: #F4A7C3;
+  --font-sans: 'Noto Sans JP', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-peach-50 text-brand-peach-800 font-sans;
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.card-shadow {
+  box-shadow: 0 8px 30px rgba(74, 32, 8, 0.06);
+}
+
+.peach-gradient {
+  @apply bg-gradient-to-br from-brand-peach-100 to-brand-peach-200;
+}
+
+.nav-active {
+  @apply text-brand-peach-100;
+}
+
+.btn-peach {
+  @apply bg-gradient-to-br from-brand-peach-100 to-brand-peach-200 text-white font-bold rounded-full py-3 px-6 shadow-lg shadow-brand-peach-100/20 hover:scale-[1.02] active:scale-[0.98] transition-all;
+}
+
+.tag-peach {
+  @apply text-brand-peach-400 text-xs font-bold;
+}

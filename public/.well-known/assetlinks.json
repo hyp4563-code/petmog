@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.petmog.app",
+      "sha256_cert_fingerprints": ["90:78:B4:EB:6B:55:8F:ED:94:62:8A:0F:E6:60:E7:09:D0:59:D7:E9:D1:8C:AE:EB:71:96:17:64:DD:F6:CD:71"]
+    }
+  }
+]

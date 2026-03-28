@@ -1,0 +1,9 @@
+{
+  "name": "PetMog",
+  "description": "ペットのためのすべて、温かみのあるペット専用ショッピング＆コミュニティアプリ",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

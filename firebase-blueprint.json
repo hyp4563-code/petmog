@@ -1,0 +1,103 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "username": { "type": "string", "description": "Display name" },
+        "email": { "type": "string", "description": "User email" },
+        "avatar": { "type": "string", "description": "Avatar URL" },
+        "bio": { "type": "string", "description": "User bio" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "username", "email"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "A comment on a post",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "uid": { "type": "string", "description": "Author UID" },
+        "username": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "uid", "username", "text", "createdAt"]
+    },
+    "Post": {
+      "title": "Post",
+      "description": "A pet post",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "uid": { "type": "string", "description": "Author UID" },
+        "username": { "type": "string" },
+        "userAvatar": { "type": "string" },
+        "image": { "type": "string" },
+        "caption": { "type": "string" },
+        "animalType": { "type": "string", "enum": ["dog", "cat", "rabbit", "bird", "reptile", "other"] },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "likes": { "type": "number" },
+        "likedBy": { "type": "array", "items": { "type": "string" }, "description": "Array of user UIDs who liked this post" },
+        "comments": { "type": "array", "items": { "$ref": "Comment" } },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "uid", "username", "image", "caption", "animalType", "createdAt"]
+    },
+    "SearchKeyword": {
+      "title": "SearchKeyword",
+      "description": "Popular search keywords and their counts",
+      "type": "object",
+      "properties": {
+        "keyword": { "type": "string" },
+        "count": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["keyword", "count", "updatedAt"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Pet products",
+      "type": "object",
+      "properties": {
+        "brand": { "type": "string" },
+        "name": { "type": "string" },
+        "image": { "type": "string" },
+        "originalPrice": { "type": "number" },
+        "discountRate": { "type": "number" },
+        "price": { "type": "number" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "isDawnDelivery": { "type": "boolean" },
+        "isTodayDelivery": { "type": "boolean" },
+        "category": { "type": "string" },
+        "subCategory": { "type": "string" },
+        "description": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "options": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["brand", "name", "price", "category"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/posts/{postId}": {
+      "schema": "Post",
+      "description": "Pet posts"
+    },
+    "/searchKeywords/{keyword}": {
+      "schema": "SearchKeyword",
+      "description": "Popular search keywords"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Pet products"
+    }
+  }
+}
